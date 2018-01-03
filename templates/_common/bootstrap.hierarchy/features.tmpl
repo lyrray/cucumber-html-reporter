@@ -57,7 +57,7 @@
                             <div class="panel-body">
                                 <% if (element.description) { %><div class="description" id="scenario-description"><%= element.description.trim().replace(/\n/g, '<br />') %></div><% } %>
                                 <% _.each(element.steps, function(step, stepIndex) { %>
-                                <% if(!step.hidden || step.image || step.text || step.result.status === 'failed') { %>
+                                <% if(!step.hidden || step.images || step.text || step.result.status === 'failed') { %>
                                 <p class="scenario-container">
                                 <div class="row steps">
                                     <% if(step.result) { %>
@@ -141,11 +141,14 @@
                                     </div>
                                     <% } %>
 
-                                    <% if (step.image) { %>
+                                    <% if (step.images) { %>
                                     <a class="toggle" href="javascript: void(0);">Screenshot +</a>
-                                    <a class="screenshot" href="<%= step.image %>">
-                                        <img class="screenshot" style="height:100%;width:100%;display:none;" id="my_images" src="<%= step.image %>"/>
+                                    <!-- TODO add list -->
+									<% _.each(step.images, function(image) { %>
+                                    <a class="screenshot" href="<%= image %>">
+                                        <img class="screenshot" style="height:100%;width:100%;display:none;" id="my_images" src="<%= image %>"/>
                                     </a>
+									<% }); %>
                                     <% } %>
 
                                     <% } %>

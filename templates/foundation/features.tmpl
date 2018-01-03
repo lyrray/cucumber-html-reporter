@@ -54,11 +54,14 @@
              </div>
         <% } %>
 
-		 <% if (step.image) { %>
+		 <% if (step.images) { %>
                  <a class="toggle" href="#">Screenshot -</a>
-                  <a class="screenshot" href="<%= step.image %>">
-                      <img class="screenshot" style="height:100%;width:100%" id="my_images" src="<%= step.image %>"/>
+				 <!-- TODO add list -->
+				 <% _.each(step.images, function(image) { %>
+                      <a class="screenshot" href="<%= image %>">
+                      <img class="screenshot" style="height:100%;width:100%" id="my_images" src="<%= image %>"/>
                    </a>
+				<% }); %>
           <% } %>
               </p>
 

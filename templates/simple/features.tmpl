@@ -18,10 +18,13 @@
                      <%= step.text %>
                    </div>
              <% } %>
-             <% if (step.image) { %>
+             <% if (step.images) { %>
                    <div class="step-screenshot-wrap">
                      <a class="toggle" href="#">Screenshot -</a>
-                     <img class="screenshot" src="<%= step.image %>"/>
+                     <!-- TODO add list -->
+					  <% _.each(step.images, function(image) { %>
+                     	<img class="screenshot" src="<%= image %>"/>
+					 <% }); %>
                    </div>
              <% } %>
              <% if (step.result.error_message) { %>
